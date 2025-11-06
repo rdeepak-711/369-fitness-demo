@@ -64,42 +64,42 @@ const Navbar = () => {
           }`}>
             <Link 
               to="/" 
-              className={`font-medium text-sm transition-colors pb-2 relative ${isActive('/') ? 'text-brand-red font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-red' : 'text-brand-black hover:text-brand-red after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red after:transition-all hover:after:w-full'}`}
+              className={`font-medium text-base md:text-lg lg:text-base transition-colors pb-2 relative ${isActive('/') ? 'text-brand-red font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-red' : 'text-brand-black hover:text-brand-red after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red after:transition-all hover:after:w-full'}`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Home
             </Link>
             <Link 
               to="/about" 
-              className={`font-medium text-sm transition-colors pb-2 relative ${isActive('/about') ? 'text-brand-red font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-red' : 'text-brand-black hover:text-brand-red after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red after:transition-all hover:after:w-full'}`}
+              className={`font-medium text-base md:text-lg lg:text-base transition-colors pb-2 relative ${isActive('/about') ? 'text-brand-red font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-red' : 'text-brand-black hover:text-brand-red after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red after:transition-all hover:after:w-full'}`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About
             </Link>
             <Link 
               to="/programs" 
-              className={`font-medium text-sm transition-colors pb-2 relative ${isActive('/programs') ? 'text-brand-red font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-red' : 'text-brand-black hover:text-brand-red after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red after:transition-all hover:after:w-full'}`}
+              className={`font-medium text-base md:text-lg lg:text-base transition-colors pb-2 relative ${isActive('/programs') ? 'text-brand-red font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-red' : 'text-brand-black hover:text-brand-red after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red after:transition-all hover:after:w-full'}`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Programs
             </Link>
             <Link 
               to="/membership" 
-              className={`font-medium text-sm transition-colors pb-2 relative ${isActive('/membership') ? 'text-brand-red font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-red' : 'text-brand-black hover:text-brand-red after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red after:transition-all hover:after:w-full'}`}
+              className={`font-medium text-base md:text-lg lg:text-base transition-colors pb-2 relative ${isActive('/membership') ? 'text-brand-red font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-red' : 'text-brand-black hover:text-brand-red after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red after:transition-all hover:after:w-full'}`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Membership
             </Link>
             <Link 
               to="/wellness" 
-              className={`font-medium text-sm transition-colors pb-2 relative ${isActive('/wellness') ? 'text-brand-red font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-red' : 'text-brand-black hover:text-brand-red after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red after:transition-all hover:after:w-full'}`}
+              className={`font-medium text-base md:text-lg lg:text-base transition-colors pb-2 relative ${isActive('/wellness') ? 'text-brand-red font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-red' : 'text-brand-black hover:text-brand-red after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red after:transition-all hover:after:w-full'}`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Wellness Corner
             </Link>
             <Link 
               to="/testimonials" 
-              className={`font-medium text-sm transition-colors pb-2 relative ${
+              className={`font-medium text-base md:text-lg lg:text-base transition-colors pb-2 relative ${
                 isActive('/testimonials') 
                   ? 'text-brand-red font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-red' 
                   : 'text-brand-black hover:text-brand-red after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red after:transition-all hover:after:w-full'
@@ -110,7 +110,7 @@ const Navbar = () => {
             </Link>
             <Link 
               to="/contact" 
-              className={`font-medium text-sm transition-colors pb-2 relative ${
+              className={`font-medium text-base md:text-lg lg:text-base transition-colors pb-2 relative ${
                 isActive('/contact') 
                   ? 'text-brand-red font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-red' 
                   : 'text-brand-black hover:text-brand-red after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red after:transition-all hover:after:w-full'
@@ -121,7 +121,7 @@ const Navbar = () => {
             </Link>
             <Link 
               to="/contact" 
-              className="btn-primary mt-4 lg:mt-0 lg:ml-4 text-sm px-6 py-2.5"
+              className="btn-primary mt-4 lg:mt-0 lg:ml-4 text-base md:text-lg lg:text-base px-7 py-3 lg:px-6 lg:py-2.5"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Claim Your Free Trial
