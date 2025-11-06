@@ -18,20 +18,17 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 
 function App() {
+  // Set favicon from env (once on mount)
+  useEffect(() => {
+    const fav = import.meta.env.VITE_FAVICON_IMAGE_URL;
+    if (!fav) return;
+    const link = document.querySelector('link[rel="icon"]');
+    if (link) link.setAttribute('href', fav);
+  }, []);
+
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
-        {/** Update favicon from env if provided */}
-        {(() => { /* no-op wrapper */ })()}
-        {(() => {
-          const fav = import.meta.env.VITE_FAVICON_IMAGE_URL;
-          useEffect(() => {
-            if (!fav) return;
-            const link = document.querySelector('link[rel="icon"]');
-            if (link) link.setAttribute('href', fav);
-          }, []);
-          return null;
-        })()}
         <ScrollToTop />
         <Navbar />
         <main className="flex-grow">

@@ -1,5 +1,3 @@
-import { onCLS, onFID, onLCP, onINP, onTTFB } from 'web-vitals';
-
 function sendToGA4(metric) {
   if (typeof window.gtag !== 'function') return;
   try {
@@ -15,11 +13,23 @@ function sendToGA4(metric) {
 }
 
 export function initWebVitals() {
-  onCLS(sendToGA4);
-  onFID(sendToGA4);
-  onLCP(sendToGA4);
-  onINP(sendToGA4);
-  onTTFB(sendToGA4);
+  const start = async () => {
+    try {
+      const { onCLS, onFID, onLCP, onINP, onTTFB } = await import('web-vitals');
+      onCLS(sendToGA4);
+      onFID(sendToGA4);
+      onLCP(sendToGA4);
+      onINP(sendToGA4);
+      onTTFB(sendToGA4);
+    } catch (_) {
+      // silently skip if module not available
+    }
+  };
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(start);
+  } else {
+    setTimeout(start, 0);
+  }
 }
 
 

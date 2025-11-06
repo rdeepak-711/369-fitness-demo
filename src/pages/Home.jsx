@@ -164,13 +164,10 @@ const Home = () => {
             </div>
             
             <div className="grid grid-cols-2 gap-4">
-              {facility.features.slice(0, 4).map((feature, index) => {
-                const imgVar = `VITE_FACILITY_${index+1}_IMAGE_URL`;
-                const featureImg = import.meta.env[imgVar];
-                return (
+              {facility.features.slice(0, 4).map((feature, index) => (
                 <div key={index} className="relative h-64 rounded-lg overflow-hidden group">
                   <img 
-                    src={featureImg}
+                    src={feature.image}
                     alt={feature.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"
@@ -180,7 +177,7 @@ const Home = () => {
                     {feature.name}
                   </h4>
                 </div>
-              );})}
+              ))}
             </div>
           </div>
         </div>
