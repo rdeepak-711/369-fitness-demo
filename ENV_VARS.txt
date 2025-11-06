@@ -1,11 +1,62 @@
-Environment variables required for email notifications:
+Environment variables to configure email + ALL images (no fallbacks used)
 
-SMTP_HOST=smtp.yourprovider.com
-SMTP_PORT=587
-SMTP_USER=your_user@example.com
-SMTP_PASS=your_password
-FROM_EMAIL=369 Fitness <no-reply@369fitnesswellness.com>
-NOTIFY_TO=admin@369fitnesswellness.com
+# --- Email / SMTP ---
+SMTP_HOST=
+SMTP_PORT=
+SMTP_USER=
+SMTP_PASS=
+FROM_EMAIL=
+NOTIFY_TO=
 
-Copy these into a .env file at the project root.
+# --- Admin protection ---
+ADMIN_PASSWORD=
+
+# --- Global social preview ---
+VITE_OG_IMAGE_URL=https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=630&fit=crop
+
+# --- Home / Hero ---
+VITE_HERO_IMAGE_URL=https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1600&q=80
+
+# --- Programs (6) ---
+VITE_PROGRAM_1_IMAGE_URL=https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800
+VITE_PROGRAM_2_IMAGE_URL=https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800
+VITE_PROGRAM_3_IMAGE_URL=https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800
+VITE_PROGRAM_4_IMAGE_URL=https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800
+VITE_PROGRAM_5_IMAGE_URL=https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800
+VITE_PROGRAM_6_IMAGE_URL=https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800
+
+# --- Trainers (4) ---
+VITE_TRAINER_1_IMAGE_URL=https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400
+VITE_TRAINER_2_IMAGE_URL=https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400
+VITE_TRAINER_3_IMAGE_URL=https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400
+VITE_TRAINER_4_IMAGE_URL=https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400
+
+# --- Wellness Services (4) ---
+VITE_WELLNESS_1_IMAGE_URL=https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800
+VITE_WELLNESS_2_IMAGE_URL=https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800
+VITE_WELLNESS_3_IMAGE_URL=https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800
+VITE_WELLNESS_4_IMAGE_URL=https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800
+
+# --- Facility (4) ---
+VITE_FACILITY_1_IMAGE_URL=https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800
+VITE_FACILITY_2_IMAGE_URL=https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800
+VITE_FACILITY_3_IMAGE_URL=https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800
+VITE_FACILITY_4_IMAGE_URL=https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800
+
+# --- Testimonials (5) ---
+VITE_TESTIMONIAL_1_IMAGE_URL=https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400
+VITE_TESTIMONIAL_2_IMAGE_URL=https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400
+VITE_TESTIMONIAL_3_IMAGE_URL=https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400
+VITE_TESTIMONIAL_4_IMAGE_URL=https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400
+VITE_TESTIMONIAL_5_IMAGE_URL=https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400
+
+# --- Branding (optional) ---
+VITE_LOGO_IMAGE_URL=
+VITE_FAVICON_IMAGE_URL=
+
+Notes
+- Set every variable above in your .env (and Vercel env) to avoid any image fallback.
+- You may point to absolute URLs (CDN) or files in public/ using 
+  a leading slash, e.g. /images/hero.jpg.
+- After setting env vars, rebuild/redeploy for changes to take effect.
 

@@ -5,6 +5,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Toaster, toast } from 'react-hot-toast';
 import { useState } from 'react';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const Contact = () => {
   const gymInfo = gym;
@@ -54,7 +55,7 @@ const Contact = () => {
         </div>
       )}
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-brand-black to-gray-900 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-black to-gray-900 text-white py-16 dark-section">
         <div className="container mx-auto px-5 text-center">
           <h1 className="font-heading text-4xl md:text-5xl mb-4">
             Book Your <span className="text-brand-red">Free Trial</span>
@@ -66,6 +67,7 @@ const Contact = () => {
       </section>
 
       <div className="container mx-auto px-5 mt-16">
+        <Breadcrumbs />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="bg-white rounded-lg shadow-xl p-8">

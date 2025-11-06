@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import memberships from '../data/memberships.json';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const Membership = () => {
   
@@ -7,7 +8,7 @@ const Membership = () => {
   return (
     <div className="pt-24 pb-20">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-brand-black to-gray-900 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-black to-gray-900 text-white py-16 dark-section">
         <div className="container mx-auto px-5 text-center">
           <h1 className="font-heading text-4xl md:text-5xl mb-4">
             Membership <span className="text-brand-red">Plans</span>
@@ -21,6 +22,7 @@ const Membership = () => {
       {/* Pricing Cards */}
       <section className="py-20">
         <div className="container mx-auto px-5">
+          <Breadcrumbs />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {memberships.map((membership) => (
               <div 

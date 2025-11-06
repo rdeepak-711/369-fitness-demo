@@ -3,6 +3,9 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppFAB from './components/WhatsAppFAB';
 import ScrollToTop from './components/ScrollToTop';
+import { useEffect } from 'react';
+import BackToTop from './components/BackToTop';
+import NotFound from './pages/NotFound';
 import Home from './pages/Home';
 import About from './pages/About';
 import Programs from './pages/Programs';
@@ -18,6 +21,17 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
+        {/** Update favicon from env if provided */}
+        {(() => { /* no-op wrapper */ })()}
+        {(() => {
+          const fav = import.meta.env.VITE_FAVICON_IMAGE_URL;
+          useEffect(() => {
+            if (!fav) return;
+            const link = document.querySelector('link[rel="icon"]');
+            if (link) link.setAttribute('href', fav);
+          }, []);
+          return null;
+        })()}
         <ScrollToTop />
         <Navbar />
         <main className="flex-grow">
@@ -32,10 +46,12 @@ function App() {
             <Route path="/admin" element={<Admin />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
+          <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
         <WhatsAppFAB />
+        <BackToTop />
       </div>
     </Router>
   );

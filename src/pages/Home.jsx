@@ -3,6 +3,8 @@ import gym from '../data/gym.json';
 import programs from '../data/programs.json';
 import facility from '../data/facility.json';
 import { useCountUp } from '../hooks/useCountUp';
+import ShareButtons from '../components/ShareButtons';
+import Reveal from '../components/Reveal';
 
 const Home = () => {
   const gymInfo = gym;
@@ -10,18 +12,25 @@ const Home = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1600&q=80)',
-            filter: 'brightness(0.4)'
-          }}
-        ></div>
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden dark-section">
+        {/** Allow overriding hero image via .env (VITE_HERO_IMAGE_URL). Supports public/ paths too. */}
+        {(() => { /* noop wrapper to allow local vars in JSX */ })()}
+        {(() => {
+          const heroImage = import.meta.env.VITE_HERO_IMAGE_URL || 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1600&q=80';
+          return (
+            <div 
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+              style={{
+                backgroundImage: `url(${heroImage})`,
+                filter: 'brightness(0.4)'
+              }}
+            ></div>
+          );
+        })()}
         <div className="absolute inset-0 bg-gradient-to-b from-brand-black/60 via-brand-black/50 to-brand-black/70"></div>
         
         <div className="relative z-10 container mx-auto px-5 text-center text-white">
-          <h1 className="font-heading font-extrabold text-5xl md:text-7xl lg:text-8xl mb-6 animate-fade-in">
+          <h1 className="font-heading font-extrabold text-5xl md:text-7xl lg:text-8xl mb-6 animate-fade-in mt-6 md:mt-0">
             Transform Your Body.
             <br />
             <span className="text-brand-red">Elevate Your Mind.</span>
@@ -121,14 +130,14 @@ const Home = () => {
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="relative inline-block mb-4">
+              <Reveal className="relative inline-block mb-4">
                 <span className="absolute -top-2 -right-2 bg-brand-red text-white px-4 py-1 rounded-full text-sm font-bold animate-pulse">
                   ₹999 First Month
                 </span>
                 <h2 className="font-heading text-4xl md:text-5xl">
                   World-Class <span className="text-brand-red">Facilities</span>
                 </h2>
-              </div>
+              </Reveal>
               <p className="text-gray-600 mb-8 text-lg">
                 Our state-of-the-art facility spans 5000 sq ft and includes everything you need for a complete fitness and wellness journey.
               </p>
@@ -156,10 +165,13 @@ const Home = () => {
             </div>
             
             <div className="grid grid-cols-2 gap-4">
-              {facility.features.slice(0, 4).map((feature, index) => (
+              {facility.features.slice(0, 4).map((feature, index) => {
+                const imgVar = `VITE_FACILITY_${index+1}_IMAGE_URL`;
+                const featureImg = import.meta.env[imgVar];
+                return (
                 <div key={index} className="relative h-64 rounded-lg overflow-hidden group">
                   <img 
-                    src={feature.image} 
+                    src={featureImg}
                     alt={feature.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"
@@ -169,14 +181,14 @@ const Home = () => {
                     {feature.name}
                   </h4>
                 </div>
-              ))}
+              );})}
             </div>
           </div>
         </div>
       </section>
 
       {/* Call-to-Action Section */}
-      <section className="py-20 bg-gradient-to-br from-brand-black via-brand-black to-gray-900 text-white relative overflow-hidden">
+      <section className="py-20 pb-28 md:pb-20 bg-gradient-to-br from-brand-black via-brand-black to-gray-900 text-white relative overflow-hidden dark-section">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-brand-red rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-red rounded-full blur-3xl"></div>
@@ -267,6 +279,9 @@ const Home = () => {
               <div className="text-sm text-gray-400">✓ 24/7 Access</div>
               <div className="text-sm text-gray-400">✓ Premium Equipment</div>
               <div className="text-sm text-gray-400">✓ Holistic Wellness</div>
+            </div>
+            <div className="mt-8 flex justify-center">
+              <ShareButtons text="Check out 369 Fitness Wellness – Chennai's premium gym & wellness studio" />
             </div>
           </div>
         </div>

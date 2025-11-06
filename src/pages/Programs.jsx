@@ -1,13 +1,21 @@
 import { Link } from 'react-router-dom';
 import programs from '../data/programs.json';
+import Breadcrumbs from '../components/Breadcrumbs';
+import Reveal from '../components/Reveal';
+import { useEffect, useState } from 'react';
+import Card from '../components/Card';
 
 const Programs = () => {
-  
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 400);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
     <div className="pt-24 pb-20">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-brand-black to-gray-900 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-black to-gray-900 text-white py-16 dark-section">
         <div className="container mx-auto px-5 text-center">
           <h1 className="font-heading text-4xl md:text-5xl mb-4">
             Our <span className="text-brand-red">Programs</span>
@@ -21,15 +29,30 @@ const Programs = () => {
       {/* Programs Grid */}
       <section className="py-20">
         <div className="container mx-auto px-5">
+          <Breadcrumbs />
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className="bg-white rounded-lg overflow-hidden shadow animate-pulse">
+                  <div className="h-64 bg-gray-200" />
+                  <div className="p-6 space-y-3">
+                    <div className="h-4 bg-gray-200 w-3/4" />
+                    <div className="h-4 bg-gray-200 w-5/6" />
+                    <div className="h-10 bg-gray-200 w-full mt-4" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {programs.map((program) => (
-              <div 
-                key={program.id}
-                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
-              >
-                <div className="relative h-64 overflow-hidden">
+            {programs.map((program) => {
+              const imgVar = `VITE_PROGRAM_${program.id}_IMAGE_URL`;
+              const programImg = import.meta.env[imgVar];
+              return (
+              <Card key={program.id} className="group">
+                <Reveal className="relative h-64 overflow-hidden">
                   <img 
-                    src={program.image} 
+                    src={programImg}
                     alt={program.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"
@@ -38,7 +61,7 @@ const Programs = () => {
                   <h3 className="absolute bottom-4 left-4 right-4 font-heading text-2xl text-white">
                     {program.name}
                   </h3>
-                </div>
+                </Reveal>
                 <div className="p-6">
                   <p className="text-gray-600 mb-6">{program.description}</p>
                   <ul className="space-y-2 mb-6">
@@ -58,9 +81,11 @@ const Programs = () => {
                     </Link>
                   </div>
                 </div>
-              </div>
-            ))}
+              </Card>
+              );
+            })}
           </div>
+          )}
         </div>
       </section>
     </div>

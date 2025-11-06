@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import testimonials from '../data/testimonials.json';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const Testimonials = () => {
   
@@ -16,7 +17,7 @@ const Testimonials = () => {
   return (
     <div className="pt-24 pb-20">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-brand-black to-gray-900 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-black to-gray-900 text-white py-16 dark-section">
         <div className="container mx-auto px-5 text-center">
           <h1 className="font-heading text-4xl md:text-5xl mb-4">
             Success <span className="text-brand-red">Stories</span>
@@ -30,13 +31,14 @@ const Testimonials = () => {
       {/* Testimonials Slider */}
       <section className="py-20">
         <div className="container mx-auto px-5">
+          <Breadcrumbs />
           <div className="max-w-4xl mx-auto">
             {/* Main Testimonial Display */}
             <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-8 relative">
               <div className="flex items-start gap-6">
                 <div className="flex-shrink-0">
                   <img 
-                    src={testimonials[currentIndex].image} 
+                    src={import.meta.env[`VITE_TESTIMONIAL_${testimonials[currentIndex].id}_IMAGE_URL`]}
                     alt={testimonials[currentIndex].name}
                     className="w-24 h-24 rounded-full object-cover"
                     loading="lazy"
@@ -112,7 +114,7 @@ const Testimonials = () => {
               >
                 <div className="flex items-center mb-4">
                   <img 
-                    src={testimonial.image} 
+                    src={import.meta.env[`VITE_TESTIMONIAL_${testimonial.id}_IMAGE_URL`]}
                     alt={testimonial.name}
                     className="w-16 h-16 rounded-full object-cover mr-4"
                     loading="lazy"

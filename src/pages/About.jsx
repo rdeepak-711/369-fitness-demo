@@ -1,6 +1,8 @@
 import about from '../data/about.json';
 import trainers from '../data/trainers.json';
 import facility from '../data/facility.json';
+import Breadcrumbs from '../components/Breadcrumbs';
+import Reveal from '../components/Reveal';
 
 const About = () => {
   
@@ -8,7 +10,7 @@ const About = () => {
   return (
     <div className="pt-24 pb-20">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-brand-black to-gray-900 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-black to-gray-900 text-white py-16 dark-section">
         <div className="container mx-auto px-5 text-center">
           <h1 className="font-heading text-4xl md:text-5xl mb-4">
             About <span className="text-brand-red">369 Fitness Wellness</span>
@@ -22,7 +24,8 @@ const About = () => {
       {/* Story Section */}
       <section className="py-20">
         <div className="container mx-auto px-5">
-          <div className="max-w-4xl mx-auto">
+          <Breadcrumbs />
+          <Reveal className="max-w-4xl mx-auto">
             <h2 className="font-heading text-4xl mb-6 text-center">Our Story</h2>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">{about.story}</p>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">{about.mission}</p>
@@ -35,7 +38,7 @@ const About = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -46,11 +49,14 @@ const About = () => {
             Meet Our <span className="text-brand-red">Expert Team</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {trainers.map((trainer) => (
+            {trainers.map((trainer) => {
+              const imgVar = `VITE_TRAINER_${trainer.id}_IMAGE_URL`;
+              const trainerImg = import.meta.env[imgVar];
+              return (
               <div key={trainer.id} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                 <div className="h-64 overflow-hidden">
                   <img 
-                    src={trainer.image} 
+                    src={trainerImg}
                     alt={trainer.name}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                     loading="lazy"
@@ -70,7 +76,7 @@ const About = () => {
                   </div>
                 </div>
               </div>
-            ))}
+            );})}
           </div>
         </div>
       </section>
@@ -85,11 +91,14 @@ const About = () => {
             {facility.description}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {facility.features.map((feature, index) => (
+            {facility.features.map((feature, index) => {
+              const imgVar = `VITE_FACILITY_${index+1}_IMAGE_URL`;
+              const featureImg = import.meta.env[imgVar];
+              return (
               <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg">
                 <div className="h-64 overflow-hidden">
                   <img 
-                    src={feature.image} 
+                    src={featureImg}
                     alt={feature.name}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                     loading="lazy"
@@ -100,7 +109,7 @@ const About = () => {
                   <p className="text-gray-600">{feature.description}</p>
                 </div>
               </div>
-            ))}
+            );})}
           </div>
         </div>
       </section>

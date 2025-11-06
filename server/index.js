@@ -12,9 +12,17 @@ const __dirname = path.dirname(__filename);
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 4000;
+const adminPassword = process.env.ADMIN_PASSWORD || '';
 
 app.use(cors());
 app.use(express.json());
+function requireAdmin(req, res, next) {
+  if (!adminPassword) return res.status(500).json({ message: 'ADMIN_PASSWORD not set' });
+  const key = req.header('x-admin-key');
+  if (key !== adminPassword) return res.status(401).json({ message: 'Unauthorized' });
+  next();
+}
+
 
 const dataDir = path.join(__dirname, 'data');
 const bookingsFile = path.join(dataDir, 'bookings.json');
@@ -34,10 +42,40 @@ app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
 
-app.get('/api/bookings', (_req, res) => {
+app.get('/api/bookings', requireAdmin, (_req, res) => {
   ensureDataFile();
   const raw = fs.readFileSync(bookingsFile, 'utf-8');
   res.json(JSON.parse(raw));
+});
+app.patch('/api/bookings/:id', requireAdmin, (req, res) => {
+  try {
+    const { id } = req.params;
+    const { status } = req.body || {};
+    ensureDataFile();
+    const raw = fs.readFileSync(bookingsFile, 'utf-8');
+    const bookings = JSON.parse(raw);
+    const idx = bookings.findIndex(b => String(b.id) === String(id));
+    if (idx === -1) return res.status(404).json({ message: 'Not found' });
+    if (status) bookings[idx].status = status;
+    fs.writeFileSync(bookingsFile, JSON.stringify(bookings, null, 2));
+    res.json({ ok: true, booking: bookings[idx] });
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+app.get('/api/bookings.csv', requireAdmin, (_req, res) => {
+  ensureDataFile();
+  const raw = fs.readFileSync(bookingsFile, 'utf-8');
+  const bookings = JSON.parse(raw);
+  const headers = ['id','name','email','phone','preferredTime','message','status','createdAt'];
+  const lines = [headers.join(',')].concat(
+    bookings.map(b => headers.map(h => `"${String(b[h] ?? '').replace(/"/g,'""')}"`).join(','))
+  );
+  res.setHeader('Content-Type', 'text/csv');
+  res.setHeader('Content-Disposition', 'attachment; filename="bookings.csv"');
+  res.send(lines.join('\n'));
 });
 
 app.post('/api/bookings', async (req, res) => {
@@ -159,7 +197,7 @@ app.listen(port, () => {
 });
 
 // Simple test route to verify SMTP without submitting the public form
-app.post('/api/test-email', async (req, res) => {
+app.post('/api/test-email', requireAdmin, async (req, res) => {
   try {
     const smtpHost = process.env.SMTP_HOST;
     const smtpUser = process.env.SMTP_USER;
