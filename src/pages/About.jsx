@@ -36,11 +36,13 @@ const About = () => {
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">{about.story}</p>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">{about.mission}</p>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            <div className="mt-12 space-y-6">
               {about.values.map((value, index) => (
-                <div key={index} className="bg-brand-light p-6 rounded-lg text-center">
-                  <div className="text-4xl mb-4">✨</div>
-                  <h3 className="font-heading font-semibold">{value}</h3>
+                <div key={index} className="flex items-center gap-4">
+                  <div className="flex flex-col items-center">
+                    <span className="inline-block w-10 h-10 rounded-full bg-brand-red text-white flex items-center justify-center font-heading text-lg">✨</span>
+                  </div>
+                  <h3 className="font-heading text-xl text-brand-black">{value}</h3>
                 </div>
               ))}
             </div>
