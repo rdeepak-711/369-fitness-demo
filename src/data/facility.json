@@ -1,0 +1,11 @@
+{
+  "description": "Our state-of-the-art facility spans 5000 sq ft and includes everything you need for a complete fitness and wellness journey.",
+  "features": [
+    { "name": "Training Zone", "description": "Fully equipped with free weights, machines, and functional training equipment", "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800" },
+    { "name": "Yoga & Wellness Studio", "description": "Dedicated space for yoga, meditation, and wellness classes", "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800" },
+    { "name": "Recovery Zone", "description": "Massage therapy, foam rolling, and stretching area", "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800" },
+    { "name": "Locker Rooms", "description": "Modern locker facilities with showers and changing areas", "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800" }
+  ]
+}
+
+

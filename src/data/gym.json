@@ -1,0 +1,21 @@
+{
+  "name": "369 Fitness Wellness",
+  "tagline": "Transform Your Body. Elevate Your Mind.",
+  "location": {
+    "address": "No-4, Pillayar Kovil Street, Velachery Main Road, Madipakkam, Chennai 600091",
+    "phone": "+91 98847 51803",
+    "email": "info@369fitnesswellness.com",
+    "socialMedia": {
+      "instagram": "https://instagram.com/369fitnesswellness",
+      "facebook": "https://facebook.com/369fitnesswellness"
+    }
+  },
+  "why369": [
+    { "icon": "💪", "title": "Expert Trainers", "description": "Certified professionals with years of experience" },
+    { "icon": "🧘", "title": "Holistic Wellness", "description": "Fitness + Mind + Recovery for complete transformation" },
+    { "icon": "👥", "title": "Community Vibe", "description": "Join Chennai's elite fitness & wellness community" },
+    { "icon": "📍", "title": "Prime Location", "description": "Conveniently located in Velachery, Chennai" }
+  ]
+}
+
+

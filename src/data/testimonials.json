@@ -1,0 +1,9 @@
+[
+  { "id": 1, "name": "Arjun Menon", "role": "Software Professional", "location": "Chennai", "quote": "369 Fitness transformed not just my body, but my entire lifestyle. The holistic approach combining fitness, nutrition, and wellness has been life-changing.", "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400", "rating": 5 },
+  { "id": 2, "name": "Meera Krishnan", "role": "Marketing Executive", "location": "Chennai", "quote": "The trainers here are exceptional. They understand your goals and push you to achieve them while ensuring proper form and safety. Best investment in myself!", "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400", "rating": 5 },
+  { "id": 3, "name": "Karthik Sundaram", "role": "Business Consultant", "location": "Chennai", "quote": "The community vibe at 369 is incredible. Working out here feels like being part of a family. Plus, the facilities are world-class.", "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400", "rating": 5 },
+  { "id": 4, "name": "Divya Ramesh", "role": "Student", "location": "Chennai", "quote": "As a student, I needed something affordable yet effective. 369's monthly plan gives me everything I need, and the yoga classes help me manage stress too.", "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400", "rating": 5 },
+  { "id": 5, "name": "Suresh Patel", "role": "Entrepreneur", "location": "Chennai", "quote": "The personal training sessions have been a game-changer. Lost 15kg in 6 months and gained incredible strength. The nutrition coaching made all the difference.", "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400", "rating": 5 }
+]
+
+

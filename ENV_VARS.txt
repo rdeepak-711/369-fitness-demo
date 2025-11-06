@@ -1,0 +1,11 @@
+Environment variables required for email notifications:
+
+SMTP_HOST=smtp.yourprovider.com
+SMTP_PORT=587
+SMTP_USER=your_user@example.com
+SMTP_PASS=your_password
+FROM_EMAIL=369 Fitness <no-reply@369fitnesswellness.com>
+NOTIFY_TO=admin@369fitnesswellness.com
+
+Copy these into a .env file at the project root.
+

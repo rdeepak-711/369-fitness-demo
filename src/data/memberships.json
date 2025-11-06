@@ -1,0 +1,7 @@
+[
+  { "id": 1, "name": "Monthly", "price": 3500, "currency": "INR", "period": "month", "features": ["Unlimited gym access", "All group classes included", "Locker & shower facilities", "Free Wi-Fi", "24/7 facility access"], "popular": false },
+  { "id": 2, "name": "Quarterly", "price": 9000, "currency": "INR", "period": "3 months", "originalPrice": 10500, "features": ["Unlimited gym access", "All group classes included", "2 personal training sessions", "Locker & shower facilities", "Free Wi-Fi", "24/7 facility access", "Nutrition consultation (1 session)"], "popular": true },
+  { "id": 3, "name": "Annual", "price": 30000, "currency": "INR", "period": "year", "originalPrice": 42000, "features": ["Unlimited gym access", "All group classes included", "12 personal training sessions", "Locker & shower facilities", "Free Wi-Fi", "24/7 facility access", "Nutrition consultation (4 sessions)", "Yoga & wellness classes", "Recovery & massage sessions (2 sessions)", "Priority booking"], "popular": false }
+]
+
+

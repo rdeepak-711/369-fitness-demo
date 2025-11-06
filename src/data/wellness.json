@@ -1,0 +1,8 @@
+[
+  { "id": 1, "name": "Meditation Sessions", "description": "Guided meditation sessions to reduce stress, improve focus, and enhance mental clarity. Available in group or private sessions.", "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800", "benefits": ["Stress reduction", "Improved focus", "Better sleep", "Mental clarity"] },
+  { "id": 2, "name": "Recovery Services", "description": "Professional recovery services including massage therapy, foam rolling, and stretching to accelerate muscle recovery.", "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800", "benefits": ["Faster recovery", "Reduced soreness", "Improved flexibility", "Injury prevention"] },
+  { "id": 3, "name": "Diet Consultations", "description": "One-on-one consultations with certified nutritionists to create personalized meal plans that align with your fitness goals.", "image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800", "benefits": ["Customized meal plans", "Nutritional guidance", "Weight management", "Performance optimization"] },
+  { "id": 4, "name": "Stress Management", "description": "Comprehensive stress management workshops and sessions combining breathing techniques, mindfulness, and lifestyle coaching.", "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800", "benefits": ["Stress relief", "Work-life balance", "Emotional wellness", "Productivity boost"] }
+]
+
+
