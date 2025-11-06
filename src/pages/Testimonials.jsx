@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SEO from '../components/SEO';
 import testimonials from '../data/testimonials.json';
 import Breadcrumbs from '../components/Breadcrumbs';
 
@@ -16,6 +17,11 @@ const Testimonials = () => {
 
   return (
     <div className="pt-24 pb-20">
+      <SEO
+        title="Testimonials"
+        description="Real success stories from members across Chennai—see their transformations and experiences."
+        path="/testimonials"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-brand-black to-gray-900 text-white py-16 dark-section">
         <div className="container mx-auto px-5 text-center">
@@ -38,7 +44,7 @@ const Testimonials = () => {
               <div className="flex items-start gap-6">
                 <div className="flex-shrink-0">
                   <img 
-                    src={import.meta.env[`VITE_TESTIMONIAL_${testimonials[currentIndex].id}_IMAGE_URL`]}
+                    src={testimonials[currentIndex].image}
                     alt={testimonials[currentIndex].name}
                     className="w-24 h-24 rounded-full object-cover"
                     loading="lazy"
@@ -114,7 +120,7 @@ const Testimonials = () => {
               >
                 <div className="flex items-center mb-4">
                   <img 
-                    src={import.meta.env[`VITE_TESTIMONIAL_${testimonial.id}_IMAGE_URL`]}
+                    src={testimonial.image}
                     alt={testimonial.name}
                     className="w-16 h-16 rounded-full object-cover mr-4"
                     loading="lazy"

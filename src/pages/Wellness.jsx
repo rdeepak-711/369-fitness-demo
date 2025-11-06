@@ -1,12 +1,18 @@
 import { Link } from 'react-router-dom';
 import wellnessServices from '../data/wellness.json';
 import Breadcrumbs from '../components/Breadcrumbs';
+import SEO from '../components/SEO';
 
 const Wellness = () => {
   
 
   return (
     <div className="pt-24 pb-20">
+      <SEO
+        title="Wellness Corner"
+        description="Meditation, recovery, diet consults, stress management—holistic wellness beyond typical gyms."
+        path="/wellness"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-brand-black to-gray-900 text-white py-16 dark-section">
         <div className="container mx-auto px-5 text-center">
@@ -40,8 +46,6 @@ const Wellness = () => {
         <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {wellnessServices.map((service) => {
-              const imgVar = `VITE_WELLNESS_${service.id}_IMAGE_URL`;
-              const serviceImg = import.meta.env[imgVar];
               return (
               <div 
                 key={service.id}
@@ -49,7 +53,7 @@ const Wellness = () => {
               >
                 <div className="h-64 overflow-hidden">
                   <img 
-                    src={serviceImg}
+                    src={service.image}
                     alt={service.name}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                     loading="lazy"

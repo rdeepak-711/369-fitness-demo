@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import gym from '../data/gym.json';
 import programs from '../data/programs.json';
 import facility from '../data/facility.json';
@@ -10,6 +11,11 @@ const Home = () => {
 
   return (
     <div className="pt-20">
+      <SEO
+        title="Premium Gym & Wellness in Chennai"
+        description="Join Chennai's elite fitness & wellness community. Expert trainers, holistic wellness, programs, and premium facilities. Book your free trial."
+        path="/"
+      />
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden dark-section">
         {/** Allow overriding hero image via .env (VITE_HERO_IMAGE_URL). Supports public/ paths too. */}

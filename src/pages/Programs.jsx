@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import programs from '../data/programs.json';
+import SEO from '../components/SEO';
 import Breadcrumbs from '../components/Breadcrumbs';
 import Reveal from '../components/Reveal';
 import { useEffect, useState } from 'react';
@@ -14,6 +15,11 @@ const Programs = () => {
 
   return (
     <div className="pt-24 pb-20">
+      <SEO
+        title="Programs"
+        description="Functional training, CrossFit, Personal Training, Yoga & Wellness, Nutrition Coaching, Group Classes."
+        path="/programs"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-brand-black to-gray-900 text-white py-16 dark-section">
         <div className="container mx-auto px-5 text-center">
@@ -46,13 +52,11 @@ const Programs = () => {
           ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {programs.map((program) => {
-              const imgVar = `VITE_PROGRAM_${program.id}_IMAGE_URL`;
-              const programImg = import.meta.env[imgVar];
               return (
               <Card key={program.id} className="group">
                 <Reveal className="relative h-64 overflow-hidden">
                   <img 
-                    src={programImg}
+                    src={program.image}
                     alt={program.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"

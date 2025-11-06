@@ -1,4 +1,5 @@
 import gym from '../data/gym.json';
+import SEO from '../components/SEO';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -44,6 +45,11 @@ const Contact = () => {
 
   return (
     <div className="pt-24 pb-20">
+      <SEO
+        title="Contact & Location"
+        description="Book your free trial. Call/WhatsApp, find our Velachery/Madipakkam location, and get directions."
+        path="/contact"
+      />
       <Toaster position="top-right" />
       {showThanks && (
         <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center px-4">

@@ -1,12 +1,18 @@
 import { Link } from 'react-router-dom';
 import memberships from '../data/memberships.json';
 import Breadcrumbs from '../components/Breadcrumbs';
+import SEO from '../components/SEO';
 
 const Membership = () => {
   
 
   return (
     <div className="pt-24 pb-20">
+      <SEO
+        title="Membership & Pricing"
+        description="Monthly, quarterly, and annual plans with premium facility access, classes, and consultations."
+        path="/membership"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-brand-black to-gray-900 text-white py-16 dark-section">
         <div className="container mx-auto px-5 text-center">

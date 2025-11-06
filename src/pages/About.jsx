@@ -3,12 +3,18 @@ import trainers from '../data/trainers.json';
 import facility from '../data/facility.json';
 import Breadcrumbs from '../components/Breadcrumbs';
 import Reveal from '../components/Reveal';
+import SEO from '../components/SEO';
 
 const About = () => {
   
 
   return (
     <div className="pt-24 pb-20">
+      <SEO
+        title="About Us"
+        description="Empowering Chennai to achieve peak fitness through expert trainers, premium facilities, and holistic wellness."
+        path="/about"
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-brand-black to-gray-900 text-white py-16 dark-section">
         <div className="container mx-auto px-5 text-center">
@@ -50,13 +56,11 @@ const About = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {trainers.map((trainer) => {
-              const imgVar = `VITE_TRAINER_${trainer.id}_IMAGE_URL`;
-              const trainerImg = import.meta.env[imgVar];
               return (
               <div key={trainer.id} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                 <div className="h-64 overflow-hidden">
                   <img 
-                    src={trainerImg}
+                    src={trainer.image}
                     alt={trainer.name}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                     loading="lazy"
@@ -92,13 +96,11 @@ const About = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {facility.features.map((feature, index) => {
-              const imgVar = `VITE_FACILITY_${index+1}_IMAGE_URL`;
-              const featureImg = import.meta.env[imgVar];
               return (
               <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg">
                 <div className="h-64 overflow-hidden">
                   <img 
-                    src={featureImg}
+                    src={feature.image}
                     alt={feature.name}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                     loading="lazy"

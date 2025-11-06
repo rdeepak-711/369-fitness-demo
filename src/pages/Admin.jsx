@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import SEO from '../components/SEO';
 
 const Admin = () => {
   const [bookings, setBookings] = useState([]);
@@ -86,6 +87,7 @@ const Admin = () => {
   if (!key) {
     return (
       <div className="pt-32 md:pt-40 pb-20 container mx-auto px-5 max-w-md">
+        <SEO title="Admin" description="Admin login for managing bookings." path="/admin" />
         <h1 className="font-heading text-3xl mb-6">Admin Login</h1>
         <form onSubmit={login} className="space-y-4 bg-white p-6 rounded shadow">
           <div>
